@@ -7,7 +7,14 @@ function startup() {
     drawGrid(gameContainer);
     registerKeyBoardEvents();
 
-    console.log(`Secret word: ${state.secret}`); // Show the secret word for testing purposes
+    const inputField = document.getElementById('grid');
+    if (inputField) {
+        setTimeout(() => {
+            inputField.focus();
+        }, 100); 
+    }
+
+    console.log(`Secret word: ${state.secret}`); 
 }
 
 startup();

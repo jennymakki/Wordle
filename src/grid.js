@@ -9,6 +9,10 @@ export function updateGrid() {
     }
 }
 
+export function updateGridLogic(grid) {
+    return grid.map(row => row.map(cell => cell));
+}
+
 export function drawBox(container, row, col, letter = '') {
     const box = document.createElement('div');
     box.className = 'box';

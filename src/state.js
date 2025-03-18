@@ -1,5 +1,5 @@
 
-export const dictionary = ['earth', 'plane', 'crane', 'audio', 'house'];
+export const dictionary = ['earth', 'plane', 'crane', 'audio', 'house', 'brick', 'cloud', 'flame', 'water', 'flake', 'grape', 'apple'];
 
 export const state = {
     secret: dictionary[Math.floor(Math.random() * dictionary.length)],
@@ -27,7 +27,6 @@ export function revealWord(guess) {
     const guessedArray = guess.split('');
     const used = Array(5).fill(false);
 
-    // Check for correct letters
     for (let i = 0; i < 5; i++) {
         const box = document.getElementById(`box${row}${i}`);
         if (guessedArray[i] === secretArray[i]) {
@@ -37,7 +36,6 @@ export function revealWord(guess) {
         }
     }
 
-    // Check for misplaced or incorrect letters
     for (let i = 0; i < 5; i++) {
         const box = document.getElementById(`box${row}${i}`);
         if (guessedArray[i] !== null) {
@@ -52,7 +50,6 @@ export function revealWord(guess) {
         }
     }
 
-    // Check if the game is won or over
     const isWinner = state.secret === guess;
     const isGameOver = state.currentRow === 5;
 
@@ -63,7 +60,6 @@ export function revealWord(guess) {
     }
 }
 
-// Function to get feedback on the guessed word
 function getFeedback(guess, secret) {
     const secretArray = secret.split('');
     const guessedArray = guess.split('');
